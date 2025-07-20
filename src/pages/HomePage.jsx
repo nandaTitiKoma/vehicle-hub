@@ -26,7 +26,11 @@ export default function HomePage() {
 
       const cuki = sliced.map((car) => {
         const sanitized = car.Model_Name
+          .toLowerCase()
+          .replace(/\s+/g, "-") 
+          .replace(/[^a-z0-9\-]/g, "");
         const image = `/cars/${sanitized}.jpg`;
+
           return { ...car, image };
       })
 
