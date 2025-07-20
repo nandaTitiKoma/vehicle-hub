@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 🚗 Honda Vehicle Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Honda Vehicle Explorer** adalah aplikasi web eksplorasi data kendaraan yang menampilkan berbagai model mobil dari brand Honda. Dibangun menggunakan React.js, Tailwind CSS, dan mengintegrasikan API dari NHTSA. Aplikasi ini menawarkan pengalaman pengguna yang interaktif, animatif, dan responsif di berbagai perangkat.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Deskripsi Proyek
 
-### `npm start`
+Aplikasi ini merupakan bagian dari Proyek UAS pada mata kuliah *Kerangka Kerja Pengembangan Antarmuka Website*. Aplikasi memungkinkan pengguna mencari dan melihat data kendaraan Honda serta menyimpan kendaraan favorit.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API yang Digunakan
 
-### `npm test`
+Data kendaraan diambil dari API publik:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> https://vpic.nhtsa.dot.gov/api/
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Fitur-Fitur Utama
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Pencarian kendaraan berdasarkan merek dan model
+- Tambahkan kendaraan ke daftar favorit (Redux + localStorage)
+- Autentikasi pengguna (Login & Register)
+- Detail kendaraan secara lengkap
+- Responsif untuk mobile & desktop
+- Animasi transisi (Framer Motion & AOS)
+- Loading animasi saat gambar dimuat
+- PrivateRoute untuk melindungi akses user
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Struktur Halaman dan Routing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Path | Halaman | Keterangan |
+|------|---------|------------|
+| `/` | Beranda | Halaman utama |
+| `/search` | Pencarian | Protected (login) |
+| `/favorites` | Favorit | Protected (login) |
+| `/updateUser` | Edit Profil | Protected (login) |
+| `/detail/:modelId` | Detail Kendaraan | Protected (login) |
+| `/login` | Login |
+| `/register` | Registrasi |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Routing menggunakan **React Router v6** dengan `PrivateRoute` untuk proteksi.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Cara Menjalankan Secara Lokal
 
-## Learn More
+1. **Clone repository**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/username/honda-explorer.git
+cd honda-explorer
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Install dependencies**
 
-### Code Splitting
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Jalankan aplikasi**
 
-### Analyzing the Bundle Size
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Aplikasi akan berjalan di `http://localhost:3000`.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Live Demo
 
-### Advanced Configuration
+Video demo:  
+[![Demo Video](https://img.youtube.com/vi/oZoav_bdWd0/0.jpg)](https://youtu.be/oZoav_bdWd0)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **React.js** – Library frontend utama
+- **Tailwind CSS** – Styling cepat dan responsif
+- **Redux Toolkit** – Manajemen state global (auth, favorite)
+- **React Router DOM** – Routing SPA
+- **Framer Motion & AOS** – Animasi transisi halaman dan elemen
+- **localStorage** – Menyimpan data user/favorit lokal
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
